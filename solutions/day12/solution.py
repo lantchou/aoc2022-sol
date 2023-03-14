@@ -7,12 +7,12 @@ def solve1(lines):
     # find starting pos "S"
     start_row = 0
     while (start_col := lines[start_row].find("S")) == -1:
-         start_row += 1
+        start_row += 1
 
     # find destination pos "E"
     dest_row = 0
     while (dest_col := lines[dest_row].find("E")) == -1:
-         dest_row += 1
+        dest_row += 1
 
     grid = [[c for c in line] for line in lines]
     grid[start_row][start_col] = "a"
@@ -25,12 +25,12 @@ def solve2(lines):
     # find "S" position
     start_row = 0
     while (start_col := lines[start_row].find("S")) == -1:
-         start_row += 1
+        start_row += 1
 
     # find destination pos "E"
     dest_row = 0
     while (dest_col := lines[dest_row].find("E")) == -1:
-         dest_row += 1
+        dest_row += 1
 
     grid = [[c for c in line] for line in lines]
     grid[start_row][start_col] = "a"
@@ -41,8 +41,9 @@ def solve2(lines):
     for row in range(len(grid)):
         for col in range(len(grid[0])):
             if grid[row][col] == "a":
-                min_dist = min(min_dist, find_shortest_path(grid, row, col, dest_row, dest_col))
-    
+                min_dist = min(min_dist, find_shortest_path(
+                    grid, row, col, dest_row, dest_col))
+
     return min_dist
 
 
@@ -91,4 +92,3 @@ if __name__ == "__main__":
 
     print(solve1(input_lines))
     print(solve2(input_lines))
-
